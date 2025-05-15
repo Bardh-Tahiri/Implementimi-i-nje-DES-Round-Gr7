@@ -100,4 +100,21 @@ class DESRound {
         }
         return result.toString(); // 32 bit
     }
+    // Funksioni f në DES
+    public static String fFunction(String rInput, String subKey) {
+        String expandedR = permute(rInput, expansionTable); // 48 bit
+        String xored = xor(expandedR, subKey);              // 48 bit
+        String sBoxOutput = sBoxLookupAll(xored);           // 32 bit
+        return permute(sBoxOutput, pTable);                 // 32 bit
+    }
+
+    // Një raund i DES-it
+    public static void desRound(String lPrev, String rPrev, String key) {
+        String fOutput = fFunction(rPrev, key);
+        String newL = rPrev;
+        String newR = xor(lPrev, fOutput);
+
+        System.out.println("L(i): " + newL);
+        System.out.println("R(i): " + newR);
+    }
 }
