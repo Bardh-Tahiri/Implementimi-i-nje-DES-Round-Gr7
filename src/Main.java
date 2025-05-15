@@ -71,4 +71,21 @@ class DESRound {
                     {2,1,14,7,4,10,8,13,15,12,9,0,3,5,6,11}
             }
     };
+        // XOR i dy stringjeve binare
+    public static String xor(String a, String b) {
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < a.length(); i++) {
+            result.append(a.charAt(i) == b.charAt(i) ? '0' : '1');
+        }
+        return result.toString();
+    }
+
+    // Permutimi sipas një tabele
+    public static String permute(String input, int[] table) {
+        StringBuilder output = new StringBuilder();
+        for (int position : table) {
+            output.append(input.charAt(position - 1));
+        }
+        return output.toString();
+    }
 }
