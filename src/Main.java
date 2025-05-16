@@ -117,4 +117,21 @@ class DESRound {
         System.out.println("L(i): " + newL);
         System.out.println("R(i): " + newR);
     }
+    // Funksioni main për testim
+public static void main(String[] args) {
+    String L0 = "00010010001101000101011001111000"; // 32 bit
+    String R0 = "10011011110011011110111100001111"; // 32 bit
+
+    Scanner scanner = new Scanner(System.in);
+    System.out.println("Jep subKey qe deshironi (48 bita):");
+    String subKey = scanner.nextLine();
+    scanner.close();
+
+    if (subKey.length() != 48) {
+        System.out.println("Gabim: SubKey duhet te jete 48 bita.");
+        return;
+    }
+
+    desRound(L0, R0, subKey);
+}
 }
